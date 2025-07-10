@@ -1,0 +1,34 @@
+{
+  // Editor
+  "editor.rulers": [90],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 90,
+  "[typescriptreact]": {
+    "editor.wordWrapColumn": 90,
+  },
+  "[typescript]": {
+    "editor.wordWrapColumn": 90,
+  },
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Tailwind
+  "tailwindCSS.experimental.classRegex": [
+    ["\\b(?:\\w*ClassNames|classNames)=\\{\\{\\s*[\\s\\S]*?:\\s*['\"]([^'\"]*)"],
+    ["w*ClassName\\s*=\\s*\"([^\"]*)\""],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]"],
+    ["tw`([^`]*)`"],
+    ["tv\\(([^)]*)\\)", "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"]
+  ],
+
+  // Spell checker
+  "cSpell.enabled": true,
+  "cSpell.language": "en,pt",
+
+  // File associations
+  "symbols.files.associations": {
+    "bun.lock": "bun"
+  }
+}
