@@ -1,11 +1,7 @@
-// Replace nextjs-vite with the name of your framework
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
-/**
- * Use to show a placeholder while content is loading.
- */
 const meta = {
   title: "ui/Skeleton",
   component: Skeleton,
@@ -20,9 +16,6 @@ export default meta;
 
 type Story = StoryObj<typeof Skeleton>;
 
-/**
- * The default form of the skeleton.
- */
 export const Default: Story = {
   render: (args) => (
     <div className="flex items-center space-x-4">

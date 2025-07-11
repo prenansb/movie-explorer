@@ -3,7 +3,6 @@ import { CommandSearch } from '@/components/command-search/command-search';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { Movie } from '@/types/movie';
 
-// Mock data for the search results so the component can render without hitting the real API
 const mockMovies = [
   {
     id: 1,
@@ -39,18 +38,14 @@ const mockMovies = [
   },
 ] as Movie[];
 
-// Create a QueryClient instance that provides the mocked data for every query
-// whose key starts with "search" (e.g. ['search', 'batman']).
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // Disable retries to avoid console noise in Storybook
       retry: false,
     },
   },
 });
 
-// Whenever the CommandSearch component performs a search, return the mock data
 queryClient.setQueryDefaults(['search'], {
   // eslint-disable-next-line @typescript-eslint/require-await
   queryFn: async () => ({

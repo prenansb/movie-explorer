@@ -12,10 +12,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-/**
- * A window overlaid on either the primary window or another dialog window,
- * rendering the content underneath inert.
- */
 const meta = {
   title: "ui/Dialog",
   component: Dialog,
@@ -50,9 +46,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/**
- * The default form of the dialog.
- */
 export const Default: Story = {};
 
 export const ShouldOpenCloseWithContinue: Story = {

@@ -7,9 +7,6 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
-/**
- * For sighted users to preview content available behind a link.
- */
 const meta = {
   title: "ui/HoverCard",
   component: HoverCard,
@@ -33,15 +30,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/**
- * The default form of the hover card.
- */
 export const Default: Story = {};
 
-/**
- * Use the `openDelay` and `closeDelay` props to control the delay before the
- * hover card opens and closes.
- */
 export const Instant: Story = {
   args: {
     openDelay: 0,
