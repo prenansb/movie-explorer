@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CommandSearch } from '@/components/command-search/command-search'
 import { Home } from 'lucide-react'
+import { ThemeSwitcher } from './theme-switcher'
 
 export function Navbar() {
   return (
@@ -14,8 +15,10 @@ export function Navbar() {
           Página inicial
         </Link>
 
-        <div className="w-full max-w-[400px]">
+        <div className="flex w-full max-w-[400px] items-center gap-2">
           <CommandSearch />
+
+          <ThemeSwitcher />
         </div>
       </div>
     </header>

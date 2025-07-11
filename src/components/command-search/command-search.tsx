@@ -55,7 +55,7 @@ export function CommandSearch() {
   const hasResults = Boolean(movies?.length)
 
   return (
-    <>
+    <div className="w-full">
       <Button
         variant="outline"
         className="text-muted-foreground flex w-full justify-between gap-2 px-3 text-sm"
@@ -100,6 +100,6 @@ export function CommandSearch() {
           </CommandList>
         </Command>
       </CommandDialog>
-    </>
+    </div>
   )
 }
