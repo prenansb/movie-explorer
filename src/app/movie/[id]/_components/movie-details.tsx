@@ -1,22 +1,23 @@
+import { unstable_ViewTransition as ViewTransition } from 'react'
 import { Banner } from '@/components/banner'
-import { fetchMovieById } from '@/lib/api'
 import { tmdbImage } from '@/lib/tmdb/image'
+import { Movie } from '@/types/movie'
 import { MovieInfos } from './movie-infos'
 
 type MovieDetailsProps = {
-  id: number
+  movie: Movie
 }
 
-export const MovieDetails = async ({ id }: MovieDetailsProps) => {
-  const movie = await fetchMovieById({ id })
-
+export const MovieDetails = async ({ movie }: MovieDetailsProps) => {
   return (
-    <div className="relative mx-auto max-w-6xl">
-      <Banner url={tmdbImage(movie.backdrop_path ?? '')} />
+    <ViewTransition>
+      <div className="relative mx-auto max-w-6xl">
+        <Banner url={tmdbImage(movie.backdrop_path ?? '')} />
 
-      <section className="mx-auto my-8 max-w-4xl space-y-6">
-        <MovieInfos movie={movie} />
-      </section>
-    </div>
+        <section className="mx-auto my-8 max-w-4xl space-y-6">
+          <MovieInfos movie={movie} />
+        </section>
+      </div>
+    </ViewTransition>
   )
 }

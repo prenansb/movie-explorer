@@ -21,7 +21,7 @@ export async function fetchMovies({
 }: FetchMoviesParams): Promise<MoviesResponse> {
   const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=pt-BR&sort_by=popularity.desc&include_video=false&include_adult=false&page=${page}`
 
-  const response = await fetch(url, { headers })
+  const response = await fetch(url, { headers, cache: 'force-cache' })
 
   if (!response.ok) {
     throw new Error('Failed to fetch movies')
@@ -57,7 +57,7 @@ type FetchMovieByIdParams = {
 export async function fetchMovieById({ id }: FetchMovieByIdParams): Promise<Movie> {
   const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/${id}?language=pt-BR`
 
-  const response = await fetch(url, { headers })
+  const response = await fetch(url, { headers, cache: 'force-cache' })
 
   if (!response.ok) {
     throw new Error('Failed to fetch movie')

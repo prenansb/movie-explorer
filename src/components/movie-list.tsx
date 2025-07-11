@@ -1,12 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect } from 'react'
 import { PosterCard } from '@/components/poster-card'
 import { fetchMovies, MoviesResponse } from '@/lib/api'
 import { tmdbImage } from '@/lib/tmdb/image'
 import { Movie } from '@/types/movie'
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { Link } from 'next-view-transitions'
 import { useInView } from 'react-intersection-observer'
 import { v4 } from 'uuid'
 
