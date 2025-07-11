@@ -58,7 +58,7 @@ export function CommandSearch() {
     <div className="w-full">
       <Button
         variant="outline"
-        className="text-muted-foreground flex w-full justify-between gap-2 px-3 text-sm"
+        className="text-muted-foreground flex w-full justify-between gap-2 rounded-full px-3 text-sm"
         onClick={() => setOpen(true)}
       >
         <div className="flex items-center gap-2">

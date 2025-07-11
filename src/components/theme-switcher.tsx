@@ -22,11 +22,11 @@ export function ThemeSwitcher() {
   const resolvedTheme = mounted ? theme : undefined
 
   return (
-    <div ref={() => setMounted(true)} className="-mr-1.5 flex rounded-full border">
+    <div ref={() => setMounted(true)} className="flex rounded-full border px-2 py-[5px]">
       {themes.map(currentTheme => (
         <div
           className={cn(
-            'hover:text-foreground text-muted-foreground cursor-pointer rounded-full border-transparent p-1 transition-all first:border-r last:border-l',
+            'hover:text-foreground text-muted-foreground cursor-pointer rounded-full border border-transparent p-1 transition-all',
             currentTheme === resolvedTheme && 'border-border text-foreground',
           )}
           onClick={() => setTheme(currentTheme)}
