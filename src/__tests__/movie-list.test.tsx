@@ -1,4 +1,6 @@
 import { MovieList } from '@/components/movie-list'
+// Re-import the mocked function for assertions
+import { fetchMovies as fetchMoviesMock } from '@/lib/api'
 import { waitFor } from '@testing-library/react'
 import { afterEach, expect, test, vi } from 'vitest'
 import { renderWithQuery } from './test-utils'
@@ -38,9 +40,6 @@ vi.mock('@/lib/api', () => ({
     }),
   ),
 }))
-
-// Re-import the mocked function for assertions
-import { fetchMovies as fetchMoviesMock } from '@/lib/api'
 
 // ------- Test ------- //
 

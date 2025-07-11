@@ -1,23 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from '@/components/ui/skeleton'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
-  title: "ui/Skeleton",
+  title: 'ui/Skeleton',
   component: Skeleton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-} satisfies Meta<typeof Skeleton>;
+} satisfies Meta<typeof Skeleton>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Skeleton>;
+type Story = StoryObj<typeof Skeleton>
 
 export const Default: Story = {
-  render: (args) => (
+  render: args => (
     <div className="flex items-center space-x-4">
       <Skeleton {...args} className="h-12 w-12 rounded-full" />
       <div className="space-y-2">
@@ -26,4 +25,4 @@ export const Default: Story = {
       </div>
     </div>
   ),
-};
+}

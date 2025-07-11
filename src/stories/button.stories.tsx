@@ -1,65 +1,64 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Loader2, Mail } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { Loader2, Mail } from 'lucide-react'
 
 const meta = {
-  title: "ui/Button",
+  title: 'ui/Button',
   component: Button,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     children: {
-      control: "text",
+      control: 'text',
     },
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   args: {
-    variant: "default",
-    size: "default",
-    children: "Button",
+    variant: 'default',
+    size: 'default',
+    children: 'Button',
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Button>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {};
+export const Default: Story = {}
 
 export const Outline: Story = {
   args: {
-    variant: "outline",
+    variant: 'outline',
   },
-};
+}
 
 export const Ghost: Story = {
   args: {
-    variant: "ghost",
+    variant: 'ghost',
   },
-};
+}
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
+    variant: 'secondary',
   },
-};
+}
 
 export const Destructive: Story = {
   args: {
-    variant: "destructive",
+    variant: 'destructive',
   },
-};
+}
 
 export const Link: Story = {
   args: {
-    variant: "link",
+    variant: 'link',
   },
-};
+}
 
 export const Loading: Story = {
-  render: (args) => (
+  render: args => (
     <Button {...args}>
       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
       Button
@@ -69,10 +68,10 @@ export const Loading: Story = {
     ...Outline.args,
     disabled: true,
   },
-};
+}
 
 export const WithIcon: Story = {
-  render: (args) => (
+  render: args => (
     <Button {...args}>
       <Mail className="mr-2 h-4 w-4" /> Login with Email Button
     </Button>
@@ -80,31 +79,31 @@ export const WithIcon: Story = {
   args: {
     ...Secondary.args,
   },
-};
+}
 
 export const Small: Story = {
   args: {
-    size: "sm",
+    size: 'sm',
   },
-};
+}
 
 export const Large: Story = {
   args: {
-    size: "lg",
+    size: 'lg',
   },
-};
+}
 
 export const Icon: Story = {
   args: {
     ...Secondary.args,
-    size: "icon",
-    title: "Mail",
+    size: 'icon',
+    title: 'Mail',
     children: <Mail />,
   },
-};
+}
 
 export const Disabled: Story = {
   args: {
     disabled: true,
   },
-};
+}

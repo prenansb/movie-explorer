@@ -1,5 +1,7 @@
 import { CommandSearch } from '@/components/command-search/command-search'
-import { screen, waitFor, fireEvent } from '@testing-library/react'
+// Re-import the mocked function for assertions
+import { searchMovies as searchMoviesMock } from '@/lib/api'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, test, vi } from 'vitest'
 import { renderWithQuery } from './test-utils'
 
@@ -26,16 +28,12 @@ vi.mock('@/lib/api', () => ({
   })),
 }))
 
-// Re-import the mocked function for assertions
-import { searchMovies as searchMoviesMock } from '@/lib/api'
-
 afterEach(() => {
   vi.clearAllMocks()
   vi.useRealTimers()
 })
 
 test('should display search results when user types a query', async () => {
-
   renderWithQuery(<CommandSearch />)
 
   const openButton = screen.getByRole('button', { name: /Pesquisar/i })

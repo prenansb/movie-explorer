@@ -1,19 +1,14 @@
-import { expect, userEvent, waitFor, within } from "storybook/test";
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 
 const meta = {
-  title: "ui/HoverCard",
+  title: 'ui/HoverCard',
   component: HoverCard,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {},
-  render: (args) => (
+  render: args => (
     <HoverCard {...args}>
       <HoverCardTrigger>Hover</HoverCardTrigger>
       <HoverCardContent>
@@ -22,48 +17,48 @@ const meta = {
     </HoverCard>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-} satisfies Meta<typeof HoverCard>;
+} satisfies Meta<typeof HoverCard>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {};
+export const Default: Story = {}
 
 export const Instant: Story = {
   args: {
     openDelay: 0,
     closeDelay: 0,
   },
-};
+}
 
 export const ShouldShowOnHover: Story = {
-  name: "when hovering over trigger, should show hover card content",
-  tags: ["!dev", "!autodocs"],
+  name: 'when hovering over trigger, should show hover card content',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, step }) => {
-    const canvasBody = within(canvasElement.ownerDocument.body);
+    const canvasBody = within(canvasElement.ownerDocument.body)
 
-    await step("Hover over the trigger element", async () => {
-      await userEvent.hover(await canvasBody.findByText(/hover/i));
+    await step('Hover over the trigger element', async () => {
+      await userEvent.hover(await canvasBody.findByText(/hover/i))
       await waitFor(() =>
         expect(
           canvasElement.ownerDocument.body.querySelector(
             '[data-slot="hover-card-content"]',
           ),
         ).toBeVisible(),
-      );
-    });
-    await step("Unhover the trigger element", async () => {
-      await userEvent.unhover(await canvasBody.findByText(/hover/i));
+      )
+    })
+    await step('Unhover the trigger element', async () => {
+      await userEvent.unhover(await canvasBody.findByText(/hover/i))
       await waitFor(() =>
         expect(
           canvasElement.ownerDocument.body.querySelector(
             '[data-slot="hover-card-content"]',
           ),
         ).toBeNull(),
-      );
-    });
+      )
+    })
   },
-};
+}

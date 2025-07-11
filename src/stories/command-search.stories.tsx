@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { CommandSearch } from '@/components/command-search/command-search';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type { Movie } from '@/types/movie';
+import { CommandSearch } from '@/components/command-search/command-search'
+import type { Movie } from '@/types/movie'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const mockMovies = [
   {
@@ -36,7 +36,7 @@ const mockMovies = [
     video: false,
     vote_average: 0,
   },
-] as Movie[];
+] as Movie[]
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,10 +44,9 @@ const queryClient = new QueryClient({
       retry: false,
     },
   },
-});
+})
 
 queryClient.setQueryDefaults(['search'], {
-  // eslint-disable-next-line @typescript-eslint/require-await
   queryFn: async () => ({
     page: 1,
     results: mockMovies,
@@ -55,7 +54,7 @@ queryClient.setQueryDefaults(['search'], {
     total_results: mockMovies.length,
   }),
   staleTime: Infinity,
-});
+})
 
 const meta = {
   title: 'CommandSearch',
@@ -67,20 +66,20 @@ const meta = {
     backgroundColor: { control: 'color' },
   },
   decorators: [
-    (Story) => (
+    Story => (
       <QueryClientProvider client={queryClient}>
         <Story />
       </QueryClientProvider>
     ),
   ],
-} satisfies Meta<typeof CommandSearch>;
+} satisfies Meta<typeof CommandSearch>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
     primary: true,
     label: 'CommandSearch',
   },
-};
+}
