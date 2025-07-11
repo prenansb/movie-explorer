@@ -8,10 +8,7 @@ export default function Home() {
       <section className="mx-auto w-full max-w-6xl space-y-4 px-4 py-4">
         <div>
           <h1 className="text-2xl font-bold">Descubra</h1>
-          <p className="text-muted-foreground">
-            Explore uma vasta seleção de filmes com filtros personalizados e opções de
-            ordenação.
-          </p>
+          <p className="text-muted-foreground">Explore uma vasta seleção de filmes.</p>
         </div>
 
         <Suspense fallback={<MovieGridSkeleton />}>
