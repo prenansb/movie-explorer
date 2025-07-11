@@ -19,7 +19,7 @@ type FetchMoviesParams = {
 export async function fetchMovies({
   page = 1,
 }: FetchMoviesParams): Promise<MoviesResponse> {
-  const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=pt-BR&sort_by=popularity.desc&include_video=false&page=${page}`
+  const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=pt-BR&sort_by=popularity.desc&include_video=false&include_adult=false&page=${page}`
 
   const response = await fetch(url, { headers })
 
@@ -39,7 +39,7 @@ export async function searchMovies({
   query,
   page = 1,
 }: SearchMoviesParams): Promise<MoviesResponse> {
-  const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/search/movie?language=pt-BR&page=${page}&query=${encodeURIComponent(query)}`
+  const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/search/movie?language=pt-BR&include_adult=false&page=${page}&query=${encodeURIComponent(query)}`
 
   const response = await fetch(url, { headers })
 
