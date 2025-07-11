@@ -13,6 +13,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@grafana/faro-web-sdk": "^1.19.0",
+    "@grafana/faro-web-tracing": "^1.19.0",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-hover-card": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
