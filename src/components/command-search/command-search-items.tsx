@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Movie } from '@/types/movie'
-import { Link } from 'next-view-transitions'
 
 type CommandSearchItemProps<T> = { item: T }
 
