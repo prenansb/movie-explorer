@@ -1,5 +1,4 @@
 import { CommandSearch } from '@/components/command-search/command-search'
-// Re-import the mocked function for assertions
 import { searchMovies as searchMoviesMock } from '@/lib/api'
 import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, test, vi } from 'vitest'

@@ -5,7 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 export default function Home() {
   return (
     <main className="min-h-screen w-full">
-      <section className="mx-auto w-full max-w-6xl space-y-4 px-4 py-4">
+      <section className="mx-auto w-full max-w-6xl space-y-4 px-4 py-4 lg:px-0">
         <div>
           <h1 className="text-2xl font-bold">Descubra</h1>
           <p className="text-muted-foreground">Explore uma vasta seleção de filmes.</p>
