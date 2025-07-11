@@ -6,7 +6,7 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { renderWithQuery } from './test-utils'
 
 vi.mock('@uidotdev/usehooks', () => ({
-  useDebounce: (value: any) => value,
+  useDebounce: (value: string) => value,
 }))
 
 vi.mock('next/navigation', () => ({

@@ -10,7 +10,7 @@ export default function FrontendObservability() {
   }
 
   try {
-    const faro = initializeFaro({
+    initializeFaro({
       url: process.env.NEXT_PUBLIC_FARO_URL,
       app: {
         name: process.env.NEXT_PUBLIC_FARO_APP_NAME || 'unknown_service:webjs',
@@ -28,7 +28,7 @@ export default function FrontendObservability() {
       ],
     })
   } catch (e) {
-    return null
+    return console.error(e)
   }
   return null
 }
