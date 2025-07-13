@@ -16,10 +16,10 @@ export async function generateStaticParams() {
 export default async function InterceptedMoviePage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
-  const id = Number(params.id)
-  const movie = await fetchMovieById({ id })
+  const { id } = await params
+  const movie = await fetchMovieById({ id: Number(id) })
 
   return <Modal movie={movie} />
 }
