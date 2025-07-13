@@ -50,7 +50,7 @@ export const MovieInfos = ({ movie }: MovieInfosProps) => {
             {votes}
           </div>
 
-          <p className="text-muted-foreground hidden text-xs leading-5 md:block md:text-sm md:leading-6">
+          <p className="text-muted-foreground hidden w-full max-w-6xl text-xs leading-5 md:block md:text-sm md:leading-6">
             {movie.overview}
           </p>
         </article>

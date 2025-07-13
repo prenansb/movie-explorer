@@ -19,7 +19,7 @@ type FetchMoviesParams = {
 export async function fetchMovies({
   page = 1,
 }: FetchMoviesParams): Promise<MoviesResponse> {
-  const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=pt-BR&sort_by=popularity.desc&include_video=false&include_adult=false&page=${page}`
+  const url = `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=pt-BR&sort_by=popularity.desc&include_video=false&include_adult=false&with_original_language=en|pt|es|fr|de|it&page=${page}`
 
   const response = await fetch(url, { headers, cache: 'force-cache' })
 

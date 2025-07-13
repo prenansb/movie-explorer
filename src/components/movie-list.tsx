@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { useEffect } from 'react'
 import { PosterCard } from '@/components/poster-card'
+import { ResponsiveLink } from '@/components/responsive-link'
 import { fetchMovies, MoviesResponse } from '@/lib/api'
 import { tmdbImage } from '@/lib/tmdb/image'
 import { Movie } from '@/types/movie'
@@ -35,7 +35,16 @@ export function MovieList() {
     )
   }
 
-  const flatData = data.pages.flatMap((page: MoviesResponse) => page.results)
+  const seen = new Set<number>()
+  const flatData = data.pages
+    .flatMap((page: MoviesResponse) => page.results)
+    .filter((movie: Movie) => {
+      if (seen.has(movie.id)) {
+        return false
+      }
+      seen.add(movie.id)
+      return true
+    })
   const lastPageData = data.pages[data.pages.length - 1]
   const isLastPage =
     !lastPageData ||
@@ -45,14 +54,14 @@ export function MovieList() {
     <div className="space-y-4">
       <div className="grid w-full grid-cols-3 gap-4 md:grid-cols-6">
         {flatData.map((movie: Movie) => (
-          <Link href={`/movie/${movie.id}`} key={movie.id}>
+          <ResponsiveLink href={`/movie/${movie.id}`} key={movie.id}>
             <PosterCard.Root>
               <PosterCard.Image
                 src={tmdbImage(movie.poster_path, 'w500')}
                 alt={movie.title}
               />
             </PosterCard.Root>
-          </Link>
+          </ResponsiveLink>
         ))}
 
         {!isLastPage && (

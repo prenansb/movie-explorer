@@ -8,7 +8,7 @@ type MovieDetailsProps = {
   movie: Movie
 }
 
-export const MovieDetails = async ({ movie }: MovieDetailsProps) => {
+export function MovieDetails({ movie }: MovieDetailsProps) {
   return (
     <ViewTransition>
       <div className="relative mx-auto max-w-6xl">
