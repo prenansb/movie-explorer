@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import { fetchMovieById, fetchMovies } from '@/lib/api'
 import { MovieDetails } from './_components/movie-details'
 
@@ -18,9 +17,5 @@ export default async function MoviePage({ params }: { params: Promise<{ id: stri
   const { id } = await params
   const movie = await fetchMovieById({ id: Number(id) })
 
-  return (
-    <Suspense>
-      <MovieDetails movie={movie} />
-    </Suspense>
-  )
+  return <MovieDetails movie={movie} />
 }

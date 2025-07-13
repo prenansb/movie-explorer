@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import { useMediaQuery } from '@/hooks/use-media-query'
+import { useMediaQuery } from '@uidotdev/usehooks'
 
 type ResponsiveLinkProps = {
   href: string
@@ -16,7 +16,7 @@ export function ResponsiveLink({
   className,
   ...props
 }: ResponsiveLinkProps) {
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const isMobile = useMediaQuery('only screen and (max-width : 992px)')
 
   if (isMobile) {
     return (
