@@ -74,7 +74,7 @@ export function CommandSearch() {
           <CommandInput
             placeholder="Pesquisar"
             onValueChange={setSearch}
-            defaultValue={search}
+            value={search}
           />
 
           <CommandList className="">
