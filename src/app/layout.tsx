@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import '../styles/globals.css'
+import { FrontendObservability } from '@/components/frontend-observability'
 import { Navbar } from '@/components/navbar'
 import { ReactQueryClientProvider } from '@/providers/react-query'
 import { ThemeProvider } from '@/providers/theme-provider'
@@ -37,6 +38,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <FrontendObservability />
             <div className="px-0 lg:px-4">
               <Navbar />
               {children}

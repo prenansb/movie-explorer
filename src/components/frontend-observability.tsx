@@ -1,9 +1,10 @@
+/* eslint-disable */
 'use client'
 
 import { faro, getWebInstrumentations, initializeFaro } from '@grafana/faro-web-sdk'
 import { TracingInstrumentation } from '@grafana/faro-web-tracing'
 
-export default function FrontendObservability() {
+export function FrontendObservability() {
   // skip if already initialized
   if (faro.api) {
     return null
@@ -13,8 +14,7 @@ export default function FrontendObservability() {
     initializeFaro({
       url: process.env.NEXT_PUBLIC_FARO_URL,
       app: {
-        name: process.env.NEXT_PUBLIC_FARO_APP_NAME || 'unknown_service:webjs',
-        namespace: process.env.NEXT_PUBLIC_FARO_APP_NAMESPACE || undefined,
+        name: process.env.NEXT_PUBLIC_FARO_APP_NAME,
         version: process.env.VERCEL_DEPLOYMENT_ID || '1.0.0',
         environment: process.env.NEXT_PUBLIC_VERCEL_ENV || 'development',
       },
@@ -28,7 +28,8 @@ export default function FrontendObservability() {
       ],
     })
   } catch (e) {
-    return console.error(e)
+    return null
   }
+
   return null
 }
