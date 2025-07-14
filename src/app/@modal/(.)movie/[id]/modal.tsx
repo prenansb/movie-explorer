@@ -15,7 +15,7 @@ export function Modal({ movie }: ModalProps) {
 
   return (
     <Dialog open onOpenChange={() => router.back()}>
-      <DialogContent className="lg:max-w-5xl">
+      <DialogContent className="p-0 lg:max-w-5xl">
         <Title className="sr-only">Movie Details</Title>
 
         <MovieDetails movie={movie} />

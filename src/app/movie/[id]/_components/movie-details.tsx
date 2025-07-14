@@ -11,7 +11,7 @@ type MovieDetailsProps = {
 export function MovieDetails({ movie }: MovieDetailsProps) {
   return (
     <ViewTransition>
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto w-full max-w-6xl">
         <Banner url={tmdbImage(movie.backdrop_path ?? '')} />
 
         <section className="mx-auto my-8 max-w-4xl space-y-6">
