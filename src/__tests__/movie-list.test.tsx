@@ -19,6 +19,16 @@ vi.mock('react-intersection-observer', () => ({
   }),
 }))
 
+vi.mock('next/navigation', async importOriginal => {
+  const original = await importOriginal<typeof import('next/navigation')>()
+  return {
+    ...original,
+    useRouter: () => ({
+      push: vi.fn(),
+    }),
+  }
+})
+
 vi.mock('@/lib/api', () => ({
   fetchMovies: vi.fn(({ page = 1 } = {}) =>
     Promise.resolve({
@@ -47,5 +57,15 @@ test('loads next page when sentinel enters the viewport', async () => {
   rerender(<MovieList />)
 
   await waitFor(() => expect(fetchMoviesMock).toHaveBeenCalledTimes(2))
+  expect(fetchMoviesMock).toHaveBeenLastCalledWith({ page: 2 })
+
+  // Toggle inView to simulate scrolling
+  inView = false
+  rerender(<MovieList />)
+
+  inView = true
+  rerender(<MovieList />)
+
+  await waitFor(() => expect(fetchMoviesMock).toHaveBeenCalledTimes(3))
   expect(fetchMoviesMock).toHaveBeenLastCalledWith({ page: 3 })
 })

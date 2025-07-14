@@ -8,9 +8,16 @@ vi.mock('@uidotdev/usehooks', () => ({
   useDebounce: (value: string) => value,
 }))
 
-vi.mock('next/navigation', () => ({
-  usePathname: () => '',
-}))
+vi.mock('next/navigation', async importOriginal => {
+  const original = await importOriginal<typeof import('next/navigation')>()
+  return {
+    ...original,
+    usePathname: () => '',
+    useRouter: () => ({
+      push: vi.fn(),
+    }),
+  }
+})
 
 const mockMovie = {
   id: 1,
